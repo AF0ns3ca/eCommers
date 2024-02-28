@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <h1>Bienvenido a {API_URL}</h1>
-      <p>Sitio en desarrollo</p>
+      <p>Sitio en desarrollo - segunda prueba</p>
     </div>
   )
 }
