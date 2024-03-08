@@ -24,7 +24,7 @@ const Login = () => {
       axios
          .post(`${API_URL}/public/login`, data)
          .then((resp) => {
-            setToken(resp.data.token);
+            setToken(resp.data.data.token);
             nav("/");
          })
          .catch((err) => {
@@ -58,7 +58,7 @@ const Login = () => {
                <button type="submit" className="bg-gradient w-full text-white rounded-md p-2">
                   <span>Iniciar Sesion</span>
                </button>
-               <Link className="text-gray-600" to="/registro">
+               <Link className="text-gray-600" to="/register">
                   ¿No tienes cuenta? ¡Registrate!
                </Link>
             </div>

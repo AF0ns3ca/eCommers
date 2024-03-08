@@ -26,8 +26,7 @@ const Register = () => {
       };
       axios
          .post(`${API_URL}/public/users`, data)
-         .then((resp) => {
-            setToken(resp.data.token);
+         .then(() => {
             nav("/login");
          })
          .catch((err) => {
@@ -68,9 +67,9 @@ const Register = () => {
             </div>
             <div className="text-center pt-1 mb-12 pb-1 mt-3 flex flex-col gap-2">
                <button type="submit" className="bg-gradient w-full text-white rounded-md p-2">
-                  <span>Iniciar Sesion</span>
+                  <span>Registrarse</span>
                </button>
-               <Link className="text-gray-600" to="/registro">
+               <Link className="text-gray-600" to="/login">
                   ¿Ya tienes cuenta? ¡Inicia Sesion!
                </Link>
             </div>
