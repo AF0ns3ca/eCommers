@@ -18,7 +18,7 @@ export const MainMenu = () => {
                 <Link className="menu-item" to="/">Inicio</Link>
             </li>
             <li className="flex items-center">
-                <Link className="menu-item" to="/productos">Productos</Link>
+                <Link className="menu-item" to="/products">Productos</Link>
             </li>
             {
                 !token() ? (
