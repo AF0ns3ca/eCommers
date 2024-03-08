@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import LoginTemplate from "../templates/LoginTemplate";
 
 
-const Login = () => {
+const Register = () => {
    const nav = useNavigate();
 
    //Manejo del estado de errores
@@ -20,12 +20,15 @@ const Login = () => {
       const data = {
          email: e.target.email.value,
          password: e.target.password.value,
+         details:{
+            fullname: e.target.fullname.value,
+         }
       };
       axios
-         .post(`${API_URL}/public/login`, data)
+         .post(`${API_URL}/public/users`, data)
          .then((resp) => {
             setToken(resp.data.token);
-            nav("/");
+            nav("/login");
          })
          .catch((err) => {
             console.log(err);
@@ -34,8 +37,17 @@ const Login = () => {
    };
 
    return (
-      <LoginTemplate title="Iniciar Sesion">
+      <LoginTemplate title="Registrate">
          <form onSubmit={handleSubmit}>
+            <div className="mb-4 flex flex-col gap-2">
+               <input
+                  className="w-full p-2 border rounded-md"
+                  type="text"
+                  placeholder="Nombre Completo..."
+                  name="fullname"
+                  required
+               />
+            </div>
             <div className="mb-4 flex flex-col gap-2">
                <input
                   className="w-full p-2 border rounded-md"
@@ -59,7 +71,7 @@ const Login = () => {
                   <span>Iniciar Sesion</span>
                </button>
                <Link className="text-gray-600" to="/registro">
-                  ¿No tienes cuenta? ¡Registrate!
+                  ¿Ya tienes cuenta? ¡Inicia Sesion!
                </Link>
             </div>
             {error && (
@@ -72,4 +84,4 @@ const Login = () => {
    );
 };
 
-export default Login;
+export default Register;
