@@ -1,4 +1,5 @@
 import useFetch from '../../hooks/useFetch';
+import ProductCard from '../molecules/ProductCard';
 
 const Products = () => {
 
@@ -15,12 +16,16 @@ const Products = () => {
 
 
   return (
-    <div>
-        <h1>Productos</h1>
+    <section className='py-16 max-w-256 m-auto'>
+      <h1 className='text-center text-5xl max-w-256 m-auto font-bold'>Explora nuestros productos</h1>
+      <div className='grid grid-cols-4 gap-6'>
         {
-          data.length === 0 ? <h1>No hay productos</h1> : data.map((prod) =><div key={prod.id}>{JSON.stringify(prod)}</div>)
+          data.map((product) => (
+            <ProductCard key={product.id} product={product}/>
+          ))
         }
-    </div>
+      </div>
+    </section>
   )
 }
 
