@@ -7,6 +7,7 @@ import Login from "../components/pages/Login";
 import Register from "../components/pages/Register";
 import Form from "../components/pages/admin/products/Form";
 
+
 const router = createBrowserRouter([
    {
       path: "/",
